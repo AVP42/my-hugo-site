@@ -7,14 +7,14 @@ widget: tag_cloud
 headless: true
 
 # Order that this section appears on the page.
-weight: 40
+weight: 50
 
-title: 标签热图
+title: 分类热图
 subtitle: ''
 
 content:
 # Choose the taxonomy from `config.toml` to display (e.g. tags, categories)
-  taxonomy: tags
+  taxonomy: categories
   # Choose how many tags you would like to display (0 = all tags)
   count: 20
 design:
