@@ -155,10 +155,10 @@ map:
   zoom: 15
 marketing:
   google_analytics: ''
-  google_tag_manager: ''
+  google_tag_manager: 'GTM-5ZN9884'
   google_site_verification: ''
   baidu_site_verification: ''
-  baidu_tongji: ''
+  baidu_tongji: '763a7ab0e2c46d3b10ef0ad0f269a186'
 cms:
   branch: master
   local_backend: false

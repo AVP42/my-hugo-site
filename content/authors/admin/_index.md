@@ -1,6 +1,6 @@
 ---
 # Display name
-title: avp42
+title: wufc
 
 # Is this the primary user of the site?
 superuser: true
