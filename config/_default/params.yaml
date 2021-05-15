@@ -15,7 +15,7 @@ font_size: L
 site_type: Person
 local_business_type: ''
 org_name: ''
-description: ''
+description: '技术分享，最佳实践，读书笔记'
 twitter: ''
 
 # Contact (edit or remove options as required)
@@ -156,9 +156,11 @@ map:
 marketing:
   google_analytics: ''
   google_tag_manager: 'GTM-5ZN9884'
-  google_site_verification: 'iRgLzFTh3Pq0Jxy_ueAkVxICpaQiVMRhYd_RlBi7BiY'
+  google_tag_manager_2: 'GTM-N2RT6XC'
+  google_site_verification: 'qtsKPk4I6JKVPK9CG4LQJigwAQq4DOo0RntsHTphrgc'
   baidu_site_verification: 'code-NqaTxMsp5q'
   baidu_tongji: '763a7ab0e2c46d3b10ef0ad0f269a186'
+  baidu_tongji_2: 'f1a808f8201804b02f83c62362292558'
 cms:
   branch: master
   local_backend: false

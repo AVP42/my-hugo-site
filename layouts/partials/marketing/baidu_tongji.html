@@ -1,0 +1,26 @@
+{{ $baidu_tongji := site.Params.marketing.baidu_tongji | default "" }}
+{{ $baidu_tongji_2 := site.Params.marketing.baidu_tongji_2 | default "" }}
+
+{{ if hugo.IsProduction | and $baidu_tongji }}
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ $baidu_tongji }}";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+{{ end }}
+
+{{ if hugo.IsProduction | and $baidu_tongji_2 }}
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ $baidu_tongji_2 }}";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+{{ end }}

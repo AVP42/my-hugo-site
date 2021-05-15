@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: wufc # Website name
-baseurl: 'https://wufc.netlify.app/' # Website URL
+baseurl: 'https://wufc.info/' # Website URL
 copyright: '@2021 wufc' # Footer text, e.g. '© {year} Me'
 
 ############################
