@@ -5,7 +5,7 @@
 
 title: wufc # Website name
 baseurl: 'https://wufc.info/' # Website URL
-copyright: '@2021 wufc' # Footer text, e.g. '© {year} Me'
+copyright: '' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE
