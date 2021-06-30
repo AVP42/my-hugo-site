@@ -12,6 +12,7 @@ toc: true
 draft: false
 math: false
 diagram: false
+summary: 介绍了如何基于Kafak Connect运行debezium插件来捕获Postgresql中的数据变化
 ---
 
 
@@ -152,7 +153,17 @@ curl -XPOST "http://127.0.0.1:8083/connectors/" -H 'Content-Type: application/js
 | publication.name            | 订阅的Publication名称                                        |
 | publication.autocreate.mode | Publication创建模式，由于我们是自行创建，所以这里是**disabled**<br />其他包含<br />**all_tables** - 如果pg中不存在该Publication，则自动创建一个包含所有表的Publicatin<br />**filtered** - 与all_talbes不同的是自动创建只包含table.include.list的Publication |
 | plugin.name                 | 使用了Postgresql 10默认解码插件 pgoutput                     |
-| snapshot.mode               | 由于WAL日志不会保留全部历史，所以创建snapshot先同步数据库中已经存在的数据。<br />**exported** - 在复制槽创建时使用无锁的方式创建snapshot，debezium 1.5强烈建议使用，其他模式可能造成事件丢失。<br />**initial** - 当逻辑数据库(对应db.server.name) 没有对应的offset记录时开始创建snapshot<br />其他参见[文档](https://debezium.io/documentation/reference/1.5/connectors/postgresql.html#postgresql-connector-properties) |
+| snapshot.mode               | 由于WAL日志不会保留全部历史，所以创建snapshot先同步数据库中已经存在的数据。<br />**exported** - 在复制槽创建时使用无锁的方式创建snapshot，也就是一个slot对应一份snapshot。debezium 1.5强烈建议使用，其他模式可能造成事件丢失。<br /><br /> **initial** - 当逻辑数据库(对应db.server.name) 没有对应的offset记录时开始创建snapshot<br />其他参见[文档](https://debezium.io/documentation/reference/1.5/connectors/postgresql.html#postgresql-connector-properties) |
+
+> snapshot.mode=exported模式下：
+>
+> 当删除connector后，postgresql的复制槽依然存在。
+>
+> 如果要复用复制槽并从上次的offse开始读取，connector.name和database.server.name 必须和之前一样。
+>
+> 如果要重新读取数据，建议新建connector，且connector.name和database.server.name使用不同的名称。如果要复用复制槽的话，可以修改connector.name和database.server.name的任意一个，都会重新从snapshot开始读取，不过没改database.server.name的化，会继续发到原来的topic中。
+
+
 
 connector创建完成后，就会订阅dbz_232_dev，我们可以在postgresql查看到对应的复制槽的信息
 
