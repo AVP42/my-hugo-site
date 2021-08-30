@@ -161,7 +161,7 @@ curl -XPOST "http://127.0.0.1:8083/connectors/" -H 'Content-Type: application/js
 >
 > 如果要复用复制槽并从上次的offse开始读取，connector.name和database.server.name 必须和之前一样。
 >
-> 如果要重新读取数据，建议新建connector，且connector.name和database.server.name使用不同的名称。如果要复用复制槽的话，可以修改connector.name和database.server.name的任意一个，都会重新从snapshot开始读取，不过没改database.server.name的化，会继续发到原来的topic中。
+> 如果要重新读取数据，建议新建connector，且connector.name和database.server.name使用不同的名称。如果要复用复制槽的话，可以修改connector.name和database.server.name的任意一个，都会重新从snapshot开始读取，不过没改database.server.name的话，会继续发到原来的topic中。
 
 
 
@@ -178,7 +178,7 @@ select * from pg_replication_slots;
 
 #### 5.1 快照数据
 
-创建connector之后，如果订阅的表中已经存在数据，将会对已存在的数据做快照，发送到对应的kafka topic(默认是由database.server.name，schema和table组成)。比如debezium.cities的数据就会发送到pg_232_dev.debezium.cities topic中。
+创建connector之后，如果订阅的表中已经存在数据，将会对已存在的数据做快照，发送到对应的kafka topic(默认是由database.server.name，schema和table组成)。比如debezium.cities的数据就会发送到pg_232_demo.debezium.cities topic中。
 
 运行kafka-console-consumer.sh 监听该topic，分析其数据。
 
