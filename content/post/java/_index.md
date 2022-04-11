@@ -1,5 +1,5 @@
 ---
-title: instru
+title: instrument
 cms_exclude: true
 
 # View.
